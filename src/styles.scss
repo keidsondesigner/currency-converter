@@ -1,1 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-primary: #EEEEEE;
+  --background-secondary: #FFFFFF;
+  --background-tertiary: #F4F4F4;
+  --background-quaternary: #F6F6F6;
+
+  --text-basic: #717171;
+  --text-secondary: #919191;
+  --text-green: #3C7649;
+  --text-blue: #3684CB;
+  --text-red: #DD4B4B;
+}
+
+html {
+  font-size: 62.5%; // 10px
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-primary);
+}
+
+p {
+  font-size: 1.6rem;
+}
