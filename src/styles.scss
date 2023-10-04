@@ -39,6 +39,7 @@
   --background-secondary: #FFFFFF;
   --background-tertiary: #F4F4F4;
   --background-quaternary: #F6F6F6;
+  --background-quinary: #CCCCCC;
 
   --text-basic: #717171;
   --text-secondary: #919191;
@@ -48,14 +49,33 @@
 }
 
 html {
-  font-size: 62.5%; // 10px
+  font-size: 16px;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--background-primary);
+  color: var(--text-basic);
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 1rem;
+}
+
+.text-basic {
+  color: var(--text-basic);
+}
+.text-secondary{
+
+  color: var(--text-secondary);
+}
+.text-green {
+  color: var(--text-green);
+
+}
+.text-blue {
+  color: var(--text-blue);
+}
+.text-red{
+  color: var(--text-red);
 }
