@@ -1,27 +1,56 @@
-<section class="container-card">
+<section
+  class="container-card"
+>
   <h1 class="title-currency">
-    Dólar Canadense
+    {{ (data.name ? data.name : "Moeda/Moeda-Br") | split: 0 }}
   </h1>
-  <h2 class="value-currency">
-    R$ 4,37
-  </h2>
-  <div class="content-item">
-    <div class="item-details item-percent">
-      <p class="item-details-title">
-        Variação(%)
-      </p>
-      <span class="item-details-subtitle">
-        -0,11
-      </span>
+  <div
+    *ngIf="!error && !loading"
+    class="has-data">
+    <h2
+      [ngClass]="{
+        'text-red' : data.ask <= '1',
+        'text-green' : data.ask > '1' && data.ask <= '5',
+        'text-blue' : data.ask > '5'
+      }"
+      class="value-currency">
+      {{ data.ask | currency: 'BRL' }}
+    </h2>
+    <div class="content-item">
+      <div class="item-details item-percent">
+        <p class="item-details-title">
+          Variação(%)
+        </p>
+        <span class="item-details-subtitle">
+          {{ data.pctChange.replace(".", ",") }}
+        </span>
+      </div>
+      <div class="line-divider"></div>
+      <div class="item-details item-time">
+        <p class="item-details-title">
+          Atualizado
+        </p>
+        <span class="item-details-subtitle">
+          {{ (+data.timestamp * 1000) | date:'HH:mm:ss' }}
+        </span>
+      </div>
     </div>
-    <div class="line-divider"></div>
-    <div class="item-details item-time">
-      <p class="item-details-title">
-        Atualizado
-      </p>
-      <span class="item-details-subtitle">
-        08:01:23
-      </span>
+  </div>
+
+  <div class="container-no-data-card">
+    <div *ngIf="loading" class="has-loading-data">
+      <img class="icon-loading" src="./../../../assets/imgs/loader.svg" alt="">
+    </div>
+
+    <div *ngIf="error" class="has-no-data">
+      <div class="content-item-no-data">
+        <p class="item-title">
+          Algo deu errado
+        </p>
+        <button (click)="handleReloadData.emit(data.code)" class="btn-reaload">
+          RECARREGAR
+        </button>
+      </div>
     </div>
   </div>
 </section>

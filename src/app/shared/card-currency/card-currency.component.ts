@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CurrencyData } from '@interfaces/currency-data.interface';
 
 @Component({
   selector: 'app-card-currency',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-currency.component.scss']
 })
 export class CardCurrencyComponent {
+  @Input() data!: CurrencyData;
+  @Input() loading!: boolean;
+  @Input() error?: string;
 
+  @Output() handleReloadData = new EventEmitter<string>();
 }
