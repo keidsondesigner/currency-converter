@@ -1,13 +1,13 @@
-
-<app-header></app-header>
-<section class="container">
-  <div class="box">
-    <app-card-currency></app-card-currency>
-  </div>
-  <div class="box">
-    <app-card-currency></app-card-currency>
-  </div>
-  <div class="box">
-    <app-card-currency></app-card-currency>
+<app-header/>
+<section
+  class="container"
+>
+  <div class="box" *ngFor="let item of listCurrencys$ | async">
+    <app-card-currency
+      [data]="item.currencyData"
+      [loading]="item.loading"
+      [error]="item.error"
+      (handleReloadData)="onReloadData($event)"
+    />
   </div>
 </section>
