@@ -13,7 +13,11 @@ export interface CurrencyData {
 }
 
 export interface CurrencyDataResponse {
-  CADBRL: CurrencyData;
-  ARSBRL: CurrencyData;
-  GBPBRL: CurrencyData;
+  currencyData: CurrencyData;
+  error: string;
+  loading: boolean;
+}
+
+export interface Currency {
+  currencyData: CurrencyData;
 }
