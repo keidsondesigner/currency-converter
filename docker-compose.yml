@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+  currency-converter:
+    image: keidsonroby/currency-converter:v2
+    container_name: currency-converter
+    ports:
+      - "8081:80"
