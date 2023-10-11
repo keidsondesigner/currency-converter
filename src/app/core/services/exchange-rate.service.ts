@@ -1,11 +1,8 @@
 import { Injectable } from "@angular/core";
-import { HttpClient } from '@angular/common/http';
-import { Observable } from "rxjs";
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, catchError, tap, throwError } from "rxjs";
 import { environment } from "src/environments/environment";
-import { CurrencyDataResponse } from "@interfaces/currency-data.interface";
-
-
-
+import { Currency } from "@interfaces/currency-data.interface";
 
 
 @Injectable({
@@ -16,7 +13,11 @@ export class ExchangeRateService {
 
   constructor( private http: HttpClient){ }
 
-  getCurrencys(): Observable<CurrencyDataResponse> {
-    return this.http.get<CurrencyDataResponse>(`${this.baseUrl}/last/CAD-BRL,ARS-BRL,GBP-BRL`);
+  getCurrencys(codeCurrency: string): Observable<Currency> {
+    return this.http.get<Currency>(`${this.baseUrl}/last/${codeCurrency}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        return throwError(() => error);
+      })
+    )
   }
 }
