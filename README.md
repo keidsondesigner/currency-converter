@@ -1,3 +1,7 @@
+# Project documentation
+
+Access the full documentation on this page [Doc CurrencyConverter](https://keidson.gitbook.io/currency-converter/)
+
 # CurrencyConverter
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
