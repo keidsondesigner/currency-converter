@@ -36,7 +36,7 @@ const metaReducers: MetaReducer[] = [ hydrationMetaReducer ]
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [
-    {provide: LOCALE_ID, useValue: 'pt' }
+    {provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent]
 })
